@@ -5,16 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Tag extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'title'
-    ];
+    protected $fillable=['name'];
 
     public function scripts()
     {
-        return $this->hasMany(Script::class);
+        return $this->belongsToMany(Script::class, 'tag_script');
     }
 }

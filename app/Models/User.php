@@ -79,4 +79,9 @@ class User extends Authenticatable
 
         return false;
     }
+
+    public function scripts()
+    {
+        return $this->hasMany(Script::class);
+    }
 }

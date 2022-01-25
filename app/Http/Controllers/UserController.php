@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\User;
 use Orion\Concerns\DisableAuthorization;
 use Orion\Concerns\DisablePagination;
 use Orion\Http\Controllers\Controller;
 
-class CategoryController extends Controller
+class UserController extends Controller
 {
     use DisableAuthorization,DisablePagination;
-    protected $model=Category::class;
+    protected $model=User::class;
 }

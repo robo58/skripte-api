@@ -1,0 +1,70 @@
++--------+-----------+---------------------------+-----------------------------+------------------------------------------------------------+------------------------------------------+
+| Domain | Method    | URI                       | Name                        | Action                                                     | Middleware                               |
++--------+-----------+---------------------------+-----------------------------+------------------------------------------------------------+------------------------------------------+
+|        | GET|HEAD  | api/categories            | api.categories.index        | App\Http\Controllers\CategoryController@index              | api                                      |
+|        | POST      | api/categories            | api.categories.store        | App\Http\Controllers\CategoryController@store              | api                                      |
+|        | POST      | api/categories/batch      | api.categories.batchStore   | App\Http\Controllers\CategoryController@batchStore         | api                                      |
+|        | PATCH     | api/categories/batch      | api.categories.batchUpdate  | App\Http\Controllers\CategoryController@batchUpdate        | api                                      |
+|        | DELETE    | api/categories/batch      | api.categories.batchDestroy | App\Http\Controllers\CategoryController@batchDestroy       | api                                      |
+|        | POST      | api/categories/search     | api.categories.search       | App\Http\Controllers\CategoryController@search             | api                                      |
+|        | GET|HEAD  | api/categories/{category} | api.categories.show         | App\Http\Controllers\CategoryController@show               | api                                      |
+|        | PUT|PATCH | api/categories/{category} | api.categories.update       | App\Http\Controllers\CategoryController@update             | api                                      |
+|        | DELETE    | api/categories/{category} | api.categories.destroy      | App\Http\Controllers\CategoryController@destroy            | api                                      |
+|        | GET|HEAD  | api/files                 | api.files.index             | App\Http\Controllers\FileController@index                  | api                                      |
+|        | POST      | api/files                 | api.files.store             | App\Http\Controllers\FileController@store                  | api                                      |
+|        | POST      | api/files/batch           | api.files.batchStore        | App\Http\Controllers\FileController@batchStore             | api                                      |
+|        | PATCH     | api/files/batch           | api.files.batchUpdate       | App\Http\Controllers\FileController@batchUpdate            | api                                      |
+|        | DELETE    | api/files/batch           | api.files.batchDestroy      | App\Http\Controllers\FileController@batchDestroy           | api                                      |
+|        | POST      | api/files/search          | api.files.search            | App\Http\Controllers\FileController@search                 | api                                      |
+|        | GET|HEAD  | api/files/{file}          | api.files.show              | App\Http\Controllers\FileController@show                   | api                                      |
+|        | PUT|PATCH | api/files/{file}          | api.files.update            | App\Http\Controllers\FileController@update                 | api                                      |
+|        | DELETE    | api/files/{file}          | api.files.destroy           | App\Http\Controllers\FileController@destroy                | api                                      |
+|        | GET|HEAD  | api/reviews               | api.reviews.index           | App\Http\Controllers\ReviewController@index                | api                                      |
+|        | POST      | api/reviews               | api.reviews.store           | App\Http\Controllers\ReviewController@store                | api                                      |
+|        | POST      | api/reviews/batch         | api.reviews.batchStore      | App\Http\Controllers\ReviewController@batchStore           | api                                      |
+|        | PATCH     | api/reviews/batch         | api.reviews.batchUpdate     | App\Http\Controllers\ReviewController@batchUpdate          | api                                      |
+|        | DELETE    | api/reviews/batch         | api.reviews.batchDestroy    | App\Http\Controllers\ReviewController@batchDestroy         | api                                      |
+|        | POST      | api/reviews/search        | api.reviews.search          | App\Http\Controllers\ReviewController@search               | api                                      |
+|        | GET|HEAD  | api/reviews/{review}      | api.reviews.show            | App\Http\Controllers\ReviewController@show                 | api                                      |
+|        | PUT|PATCH | api/reviews/{review}      | api.reviews.update          | App\Http\Controllers\ReviewController@update               | api                                      |
+|        | DELETE    | api/reviews/{review}      | api.reviews.destroy         | App\Http\Controllers\ReviewController@destroy              | api                                      |
+|        | GET|HEAD  | api/roles                 | api.roles.index             | App\Http\Controllers\RoleController@index                  | api                                      |
+|        | POST      | api/roles                 | api.roles.store             | App\Http\Controllers\RoleController@store                  | api                                      |
+|        | POST      | api/roles/batch           | api.roles.batchStore        | App\Http\Controllers\RoleController@batchStore             | api                                      |
+|        | PATCH     | api/roles/batch           | api.roles.batchUpdate       | App\Http\Controllers\RoleController@batchUpdate            | api                                      |
+|        | DELETE    | api/roles/batch           | api.roles.batchDestroy      | App\Http\Controllers\RoleController@batchDestroy           | api                                      |
+|        | POST      | api/roles/search          | api.roles.search            | App\Http\Controllers\RoleController@search                 | api                                      |
+|        | GET|HEAD  | api/roles/{role}          | api.roles.show              | App\Http\Controllers\RoleController@show                   | api                                      |
+|        | PUT|PATCH | api/roles/{role}          | api.roles.update            | App\Http\Controllers\RoleController@update                 | api                                      |
+|        | DELETE    | api/roles/{role}          | api.roles.destroy           | App\Http\Controllers\RoleController@destroy                | api                                      |
+|        | GET|HEAD  | api/scripts               | api.scripts.index           | App\Http\Controllers\ScriptController@index                | api                                      |
+|        | POST      | api/scripts               | api.scripts.store           | App\Http\Controllers\ScriptController@store                | api                                      |
+|        | POST      | api/scripts/batch         | api.scripts.batchStore      | App\Http\Controllers\ScriptController@batchStore           | api                                      |
+|        | PATCH     | api/scripts/batch         | api.scripts.batchUpdate     | App\Http\Controllers\ScriptController@batchUpdate          | api                                      |
+|        | DELETE    | api/scripts/batch         | api.scripts.batchDestroy    | App\Http\Controllers\ScriptController@batchDestroy         | api                                      |
+|        | POST      | api/scripts/search        | api.scripts.search          | App\Http\Controllers\ScriptController@search               | api                                      |
+|        | GET|HEAD  | api/scripts/{script}      | api.scripts.show            | App\Http\Controllers\ScriptController@show                 | api                                      |
+|        | PUT|PATCH | api/scripts/{script}      | api.scripts.update          | App\Http\Controllers\ScriptController@update               | api                                      |
+|        | DELETE    | api/scripts/{script}      | api.scripts.destroy         | App\Http\Controllers\ScriptController@destroy              | api                                      |
+|        | GET|HEAD  | api/tags                  | api.tags.index              | App\Http\Controllers\TagController@index                   | api                                      |
+|        | POST      | api/tags                  | api.tags.store              | App\Http\Controllers\TagController@store                   | api                                      |
+|        | POST      | api/tags/batch            | api.tags.batchStore         | App\Http\Controllers\TagController@batchStore              | api                                      |
+|        | PATCH     | api/tags/batch            | api.tags.batchUpdate        | App\Http\Controllers\TagController@batchUpdate             | api                                      |
+|        | DELETE    | api/tags/batch            | api.tags.batchDestroy       | App\Http\Controllers\TagController@batchDestroy            | api                                      |
+|        | POST      | api/tags/search           | api.tags.search             | App\Http\Controllers\TagController@search                  | api                                      |
+|        | GET|HEAD  | api/tags/{tag}            | api.tags.show               | App\Http\Controllers\TagController@show                    | api                                      |
+|        | PUT|PATCH | api/tags/{tag}            | api.tags.update             | App\Http\Controllers\TagController@update                  | api                                      |
+|        | DELETE    | api/tags/{tag}            | api.tags.destroy            | App\Http\Controllers\TagController@destroy                 | api                                      |
+|        | GET|HEAD  | api/user                  |                             | Closure                                                    | api                                      |
+|        |           |                           |                             |                                                            | App\Http\Middleware\Authenticate:sanctum |
+|        | GET|HEAD  | api/users                 | api.users.index             | App\Http\Controllers\UserController@index                  | api                                      |
+|        | POST      | api/users                 | api.users.store             | App\Http\Controllers\UserController@store                  | api                                      |
+|        | POST      | api/users/batch           | api.users.batchStore        | App\Http\Controllers\UserController@batchStore             | api                                      |
+|        | PATCH     | api/users/batch           | api.users.batchUpdate       | App\Http\Controllers\UserController@batchUpdate            | api                                      |
+|        | DELETE    | api/users/batch           | api.users.batchDestroy      | App\Http\Controllers\UserController@batchDestroy           | api                                      |
+|        | POST      | api/users/search          | api.users.search            | App\Http\Controllers\UserController@search                 | api                                      |
+|        | GET|HEAD  | api/users/{user}          | api.users.show              | App\Http\Controllers\UserController@show                   | api                                      |
+|        | PUT|PATCH | api/users/{user}          | api.users.update            | App\Http\Controllers\UserController@update                 | api                                      |
+|        | DELETE    | api/users/{user}          | api.users.destroy           | App\Http\Controllers\UserController@destroy                | api                                      |
+|        | GET|HEAD  | sanctum/csrf-cookie       |                             | Laravel\Sanctum\Http\Controllers\CsrfCookieController@show | web                                      |
++--------+-----------+---------------------------+-----------------------------+------------------------------------------------------------+------------------------------------------+
