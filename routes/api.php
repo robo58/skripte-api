@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Orion\Facades\Orion;
@@ -22,6 +23,18 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::group(['as' => 'api.'], function() {
+    //register new user
+    Route::post('/create-account', [AuthenticatedSessionController::class, 'createAccount']);
+//login user
+    Route::post('/signin', [AuthenticatedSessionController::class, 'signin']);
+//using middleware
+    Route::group(['middleware' => ['auth:sanctum']], function () {
+        Route::get('/profile', function(Request $request) {
+            return auth()->user();
+        });
+        Route::post('/sign-out', [AuthenticatedSessionController::class, 'logout']);
+    });
+
     Orion::resource('scripts', ScriptController::class);
     Orion::resource('categories', CategoryController::class);
     Orion::resource('users', UserController::class);
