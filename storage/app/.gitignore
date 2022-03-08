@@ -1,3 +1,5 @@
 *
 !public/
 !.gitignore
+!specs/
+!specs/specs.json
