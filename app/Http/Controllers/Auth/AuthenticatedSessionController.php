@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Response;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -68,7 +69,7 @@ class AuthenticatedSessionController extends Controller
             'email' => $attr['email']
         ]);
 
-        return $this->success([
+        return Response::json([
             'token' => $user->createToken('tokens')->plainTextToken
         ]);
     }
@@ -84,7 +85,7 @@ class AuthenticatedSessionController extends Controller
             return $this->error('Credentials not match', 401);
         }
 
-        return $this->success([
+        return Response::json([
             'token' => auth()->user()->createToken('API Token')->plainTextToken
         ]);
     }
