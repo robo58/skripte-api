@@ -8853,7 +8853,11 @@
             "Category": {
                 "title": "Category",
                 "type": "object",
-                "properties": []
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    }
+                }
             },
             "CategoryResource": {
                 "title": "CategoryResource",
@@ -8866,9 +8870,6 @@
                         "properties": {
                             "id": {
                                 "type": "integer"
-                            },
-                            "name": {
-                                "type": "string"
                             },
                             "created_at": {
                                 "type": "string",
