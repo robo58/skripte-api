@@ -82,7 +82,7 @@ class AuthenticatedSessionController extends Controller
         ]);
 
         if (!Auth::attempt($attr)) {
-            return Response::json(['message'=>'Credentials do not match'], 401);
+            return Response::json(['message'=>'Podaci nisu ispravni'], 401);
         }
 
         return Response::json([
