@@ -16,6 +16,16 @@ class ScriptController extends Controller
     use DisablePagination, DisableAuthorization;
     protected $model=Script::class;
 
+    /**
+     * The relations that are loaded by default together with a resource.
+     *
+     * @return array
+     */
+    public function alwaysIncludes() : array
+    {
+        return ['creator', 'category'];
+    }
+
     protected function afterSave(Request $request, Model $entity)
     {
         $file=$request->script;
