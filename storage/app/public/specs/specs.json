@@ -23,6 +23,15 @@
         "/api/scripts/search": {
             "post": {
                 "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ScriptSearch"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -8899,6 +8908,9 @@
                         "type": "string"
                     }
                 }
+            },
+            "ScriptSearch": {
+                "type": "object"
             },
             "UserResource": {
                 "title": "UserResource",
