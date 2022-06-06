@@ -69,6 +69,8 @@ class AuthenticatedSessionController extends Controller
             'email' => $attr['email']
         ]);
 
+        $user->assignRole('user');
+
         return Response::json([
             'token' => $user->createToken('tokens')->plainTextToken
         ]);

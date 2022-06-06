@@ -11,4 +11,6 @@ class UserController extends Controller
 {
     use DisableAuthorization,DisablePagination;
     protected $model=User::class;
+
+
 }
