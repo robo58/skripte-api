@@ -11,4 +11,9 @@ class CategoryController extends Controller
 {
     use DisableAuthorization,DisablePagination;
     protected $model=Category::class;
+
+    public function includes(): array
+    {
+        return ['scripts'];
+    }
 }

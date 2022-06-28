@@ -28,14 +28,16 @@ class ScriptController extends Controller
 
     protected function afterSave(Request $request, Model $entity)
     {
-        $file=$request->script;
-        $filename = md5($file) . now()->timestamp;
-
-        $filename .= '.' . $file->getClientOriginalExtension();
-        $path = basename(Storage::disk('local')->putFileAs('scripts', $file, $filename));
-        File::create([
-            'name'=>$path,
-            'script_id'=>$entity->id
-        ]);
+        // get the file script from the request, and save it
+        $file = $request->file('script');
+        if ($file) {
+            $file = File::make([
+                'name' => $file->getClientOriginalName(),
+                'mime_type' => $file->getMimeType(),
+                'size' => $file->getSize(),
+                'path' => $file->store('scripts'),
+            ]);
+            $entity->files()->save($file);
+        }
     }
 }

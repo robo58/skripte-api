@@ -12,4 +12,9 @@ class ReviewController extends Controller
 {
     use DisablePagination, DisableAuthorization;
     protected $model=Review::class;
+
+    public function alwaysIncludes(): array
+    {
+        return ['reviewer'];
+    }
 }

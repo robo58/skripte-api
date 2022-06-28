@@ -72,7 +72,8 @@ class AuthenticatedSessionController extends Controller
         $user->assignRole('user');
 
         return Response::json([
-            'token' => $user->createToken('tokens')->plainTextToken
+            'token' => $user->createToken('tokens')->plainTextToken,
+            'user' => $user->with('roles')->first()
         ]);
     }
     //use this method to signin users
@@ -88,7 +89,8 @@ class AuthenticatedSessionController extends Controller
         }
 
         return Response::json([
-            'token' => auth()->user()->createToken('API Token')->plainTextToken
+            'token' => auth()->user()->createToken('API Token')->plainTextToken,
+            'user' => auth()->user()->with('roles')->first()
         ]);
     }
 

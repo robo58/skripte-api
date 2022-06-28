@@ -12,5 +12,14 @@ class UserController extends Controller
     use DisableAuthorization,DisablePagination;
     protected $model=User::class;
 
+    public function alwaysIncludes(): array
+    {
+        return ['roles'];
+    }
+
+    public function includes(): array
+    {
+        return ['roles','rolesShort', 'scripts'];
+    }
 
 }

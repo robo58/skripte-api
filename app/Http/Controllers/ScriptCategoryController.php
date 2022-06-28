@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Script;
 use Illuminate\Http\Request;
+use Orion\Concerns\DisableAuthorization;
+use Orion\Concerns\DisablePagination;
 use Orion\Http\Controllers\RelationController;
 
 class ScriptCategoryController extends RelationController
 {
+    use DisablePagination, DisableAuthorization;
+
     /**
      * Fully-qualified model class name
      */
@@ -17,4 +21,9 @@ class ScriptCategoryController extends RelationController
      * Name of the relationship as it is defined on the Post model
      */
     protected $relation = 'category';
+
+    public function includes(): array
+    {
+        return ['scripts'];
+    }
 }
