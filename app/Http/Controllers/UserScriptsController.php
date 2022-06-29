@@ -36,7 +36,7 @@ class UserScriptsController extends RelationController
 
 
 
-    protected function afterSave(\Orion\Http\Requests\Request $request, Model $entity)
+    protected function afterSave(\Orion\Http\Requests\Request $request, Model $parentEntity, Model $entity)
     {
         // get the file script from the request, and save it
         $file = $request->file('script');
