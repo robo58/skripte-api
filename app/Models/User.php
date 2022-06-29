@@ -82,6 +82,6 @@ class User extends Authenticatable
 
     public function scripts()
     {
-        return $this->hasMany(Script::class);
+        return $this->hasMany(Script::class, 'creator_id');
     }
 }
