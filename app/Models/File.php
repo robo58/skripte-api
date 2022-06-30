@@ -9,7 +9,7 @@ class File extends Model
 {
     use HasFactory;
 
-    protected $fillable=['name', 'script_id'];
+    protected $fillable=['name', 'script_id', 'path', 'size', 'mime_type'];
 
     public function script()
     {

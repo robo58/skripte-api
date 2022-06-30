@@ -21,6 +21,6 @@ class FileController extends Controller
     public function afterShow(\Orion\Http\Requests\Request $request, Model $entity)
     {
         // download file in scripts directory with name $entity->name
-        return response()->download(storage_path('app/scripts/'.$entity->name));
+        return response()->download(storage_path('app/'.$entity->path));
     }
 }
