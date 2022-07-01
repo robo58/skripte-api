@@ -40,4 +40,12 @@ class ScriptController extends Controller
             $entity->files()->save($file);
         }
     }
+
+    protected function beforeDestroy(Request $request, Model $entity)
+    {
+        // delete related files to storage
+        $entity->files->each(function ($file) {
+            Storage::delete($file->path);
+        });
+    }
 }
