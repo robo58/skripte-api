@@ -84,13 +84,17 @@ class AuthenticatedSessionController extends Controller
             'password' => 'required|string|min:6'
         ]);
 
+//            auth()->user()->tokens()->delete();
+//            auth()->logout();
+
         if (!Auth::attempt($attr)) {
             return Response::json(['message'=>'Podaci nisu ispravni'], 401);
         }
 
+
         return Response::json([
-            'token' => auth()->user()->createToken('API Token')->plainTextToken,
-            'user' => auth()->user()->with('roles')->first()
+            'token' => Auth::user()->createToken('API Token')->plainTextToken,
+            'user' => Auth::user()->load('roles')
         ]);
     }
 
